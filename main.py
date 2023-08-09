@@ -1,5 +1,6 @@
 import streamlit as st
 import time
+from PIL import Image
 
 st.title('Streamlit 超入門')
 st.write('プログレスバーの表示')
@@ -16,12 +17,12 @@ for i in range(100):
 
 'Done!!!'
 
-
+image = Image.open('IMG_5314.jpg')
 
 left_column, right_column = st.columns(2)
-button = left_column.button('右カラムに文字を表示')
+button = left_column.button('画像を表示')
 if button:
-    right_column.write('ここは右カラムです。')
+    right_column.write(st.image(image, use_column_width=True, caption='The picture of Wimbledon'))
 
 expander = st.expander('問い合わせ')
 expander.write('問い合わせの回答')
